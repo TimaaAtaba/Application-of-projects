@@ -17,7 +17,6 @@ h1 {
     margin-bottom: 30px;
 }
 
-/* البطاقة */
 .card {
     background: white;
     padding: 15px;
@@ -25,32 +24,28 @@ h1 {
     border-radius: 10px;
     box-shadow: 0 20px 6px rgba(0,0,0,0.3);
     width: 300px;
-    max-width: 90%;       /* يناسب الشاشات الصغيرة */
+    max-width: 90%;      
     text-align: center;
 }
 
-/* الصورة داخل البطاقة */
 .card img {
     width: 100%;
-    max-height: 200px;    /* أقصى ارتفاع للصورة */
-    object-fit: contain;   /* يحافظ على نسبة العرض/الارتفاع */
+    max-height: 200px;    
+    object-fit: contain;   
     border-radius: 10px;
     margin-bottom: 15px;
 }
 
-/* عنوان المشروع */
 .card h2 {
     font-size: 20px;
     margin-bottom: 10px;
 }
 
-/* وصف المشروع */
 .card p {
     font-size: 20px;
     color: black;
 }
 
-/* النجوم للتقييم */
 .stars { 
     cursor: pointer; 
     color: gray; 
@@ -62,7 +57,6 @@ h1 {
     color: gold; 
 }
 
-/* زر العودة للقائمة */
 button {
     margin-top: 15px;
     padding: 10px 20px;
@@ -86,19 +80,17 @@ button:hover {
 <div id="projectContainer" class="card"></div>
 <a href="index.html"><button>⬅ Back to menu</button></a>
 <script>
-// جلب المشروع من الرابط
 const urlParams = new URLSearchParams(window.location.search);
 const projectId = parseInt(urlParams.get("id"));
 
-// المشاريع من localStorage أو المشاريع الافتراضية
 function getProjects() {
     const stored = JSON.parse(localStorage.getItem("projectsData"));
     if (stored && stored.length) return stored;
     return [
-  { id: 1, name: "Subway Game Project", description: "משחק ריצה מהנה ברכבת התחתית...", image: "images/Subway.png", rating: 0 },
-  { id: 2, name: "Application Projects", description: "עוזר למשתמשים לארגן בקלות את הפרויקטים שלהם ולעקוב אחר ההתקדמות. זה מאפשר לך להוסיף פרויקטים חדשים", image: "images/AppProjects.png", rating: 0 },
-  { id: 3, name: "TO-DO List Project", description: "זה מאפשר למשתמשים לארגן את המשימות היומיומיות שלהם...", image: "images/notes.jpg", rating: 0 },
-  { id: 4, name: "Memory Game Project", description: "המשחק נועד לעורר ולחזק את הזיכרון...", image: "images/memory.png", rating: 0 },
+  { id: 1, name: "Subway Game Project", description: "משחק ריצה מהנה ברכבת התחתית. השחקן שולט בדמות שרצה במהירות בתוך מנהרות הרכבת התחתית", image: "images/Subway.png", rating: 0 },
+  { id: 2, name: "Application Projects", description: " עוזר למשתמשים לארגן בקלות את הפרויקטים שלהם ולעקוב אחר ההתקדמות. זה מאפשר לך להוסיף פרויקטים חדשים", image: "images/AppProjects.png", rating: 0 },
+  { id: 3, name: "TO-DO List Project", description: "יישום לארגון משימות יומיומיות בקלות וביעילות עבור משתמשים. הם יכולים להוסיף משימות חדשות", image: "images/notes.jpg", rating: 0 },
+  { id: 4, name: "Memory Game Project", description: "משחק נועד לעורר ולחזק את הזיכרון על ידי התאמת קלפים דומים, השחקנים הופכים שני קלפים  למצוא זוגות תואמים", image: "images/memory.png", rating: 0 },
   { id: 5, name: "Simon Game Project", description: "משחק ריכוז וזיכרון פופולרי המבוסס על חזרה על דפוסי צלילים וצבעים בסדר הנכון.", image: "images/sumon.png", rating: 0 },
     ];
 }
@@ -107,7 +99,6 @@ function saveProjects(projects) {
     localStorage.setItem("projectsData", JSON.stringify(projects));
 }
 
-// عرض المشروع
 function displayProject(project){
     const container = document.getElementById("projectContainer");
     container.innerHTML = `
@@ -122,7 +113,6 @@ function displayProject(project){
         </div>
     `;
 
-    // التعامل مع التقييم
     document.querySelectorAll(".stars").forEach(star => {
         star.addEventListener("click", () => {
             const value = parseInt(star.getAttribute("data-value"));
@@ -133,7 +123,6 @@ function displayProject(project){
                 return;
             }
 
-            // تحديث التقييم
             let projects = getProjects();
             let p = projects.find(p => p.id === project.id);
             if (p) {
@@ -141,7 +130,6 @@ function displayProject(project){
                 saveProjects(projects);
             }
 
-            // حفظ انه تم التقييم
             ratedProjects.push(project.id);
             localStorage.setItem("ratedProjects", JSON.stringify(ratedProjects));
 
@@ -150,7 +138,6 @@ function displayProject(project){
     });
 }
 
-// جلب المشروع عند التحميل
 function fetchProject() {
     const projects = getProjects();
     const project = projects.find(p => p.id === projectId);
@@ -162,7 +149,6 @@ function fetchProject() {
     displayProject(project);
 }
 
-// أول تحميل
 fetchProject();
 </script>
 
