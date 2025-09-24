@@ -1,7 +1,6 @@
 const container = document.getElementById("projectsContainer");
 let editId = null;
 
-// المشاريع الافتراضية
 const defaultProjects = [
   { id: 1, name: "Subway Game Project", description: "משחק ריצה מהנה ברכבת התחתית. השחקן שולט בדמות שרצה במהירות בתוך מנהרות הרכבת התחתית", image: "images/Subway.png", rating: 0 },
   { id: 2, name: "Application Projects", description: " עוזר למשתמשים לארגן בקלות את הפרויקטים שלהם ולעקוב אחר ההתקדמות. זה מאפשר לך להוסיף פרויקטים חדשים", image: "images/AppProjects.png", rating: 0 },
@@ -18,7 +17,6 @@ function saveProjects(projects) {
   localStorage.setItem("projectsData", JSON.stringify(projects));
 }
 
-// عرض المشاريع
 function displayProjects() {
   const projects = getProjects();
   container.innerHTML = "";
@@ -42,7 +40,6 @@ function displayProjects() {
     container.appendChild(div);
   });
 
-  // تقييم النجوم
   document.querySelectorAll(".stars").forEach(star => {
     star.addEventListener("click", () => {
       const id = parseInt(star.dataset.id);
@@ -56,7 +53,6 @@ function displayProjects() {
     });
   });
 
-  // حذف المشروع
   document.querySelectorAll(".deleteBtn").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = parseInt(btn.dataset.id);
@@ -67,7 +63,6 @@ function displayProjects() {
     });
   });
 
-  // تعديل المشروع
   document.querySelectorAll(".editBtn").forEach(btn => {
     btn.addEventListener("click", () => {
       const id = parseInt(btn.dataset.id);
@@ -85,16 +80,13 @@ function displayProjects() {
   });
 }
 
-// إضافة أو حفظ تعديل
 document.getElementById("addProjectBtn").addEventListener("click", () => {
   const name = document.getElementById("projectName").value.trim();
   const desc = document.getElementById("projectDesc").value.trim();
   const img = document.getElementById("projectImg").value.trim();
-  if (!name || !desc) { alert("الاسم والوصف مطلوبان!"); return; }
-
+if (!name || !desc) { alert("Name and description are required!"); return; }
   const projects = getProjects();
   if (editId) {
-    // تعديل
     const project = projects.find(p => p.id === editId);
     project.name = name;
     project.description = desc;
@@ -104,7 +96,6 @@ document.getElementById("addProjectBtn").addEventListener("click", () => {
     document.getElementById("addProjectBtn").textContent = "➕ Add project";
     document.getElementById("cancelEditBtn").style.display = "none";
   } else {
-    // إضافة جديد
     const newProject = {
       id: projects.length ? Math.max(...projects.map(p=>p.id))+1 : 1,
       name, description: desc, image: img, rating: 0
@@ -118,7 +109,6 @@ document.getElementById("addProjectBtn").addEventListener("click", () => {
   displayProjects();
 });
 
-// إلغاء التعديل
 document.getElementById("cancelEditBtn").addEventListener("click", () => {
   editId = null;
   document.getElementById("projectName").value = "";
@@ -129,5 +119,4 @@ document.getElementById("cancelEditBtn").addEventListener("click", () => {
   document.getElementById("cancelEditBtn").style.display = "none";
 });
 
-// أول تحميل
 displayProjects();

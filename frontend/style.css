@@ -11,7 +11,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* الفورم */
 .form-container {
     background: #fff;
     padding: 15px;
@@ -41,14 +40,12 @@ h1 {
 #addProjectBtn { background-color: #4CAF50; color: white; }
 #cancelEditBtn { background-color: red; color: white; }
 
-/* شبكة المشاريع */
 .projects-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* كارت المشروع */
 .project-card {
     background: #fff;
     border-radius: 10px;
@@ -77,11 +74,9 @@ h1 {
     overflow: hidden;
 }
 
-/* النجوم */
 .stars { cursor: pointer; color: gray; font-size: 20px; margin: 0 2px; }
 .stars.selected { color: gold; }
 
-/* الأزرار */
 .actions {
     margin-top: 10px;
 }
