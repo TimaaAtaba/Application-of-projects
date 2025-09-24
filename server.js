@@ -14,10 +14,10 @@ app.use(express.static(frontendPath));
 
 // 🔹 مصفوفة المشاريع في الذاكرة
 let projects = [
-    { id: 1, name: "Subway Game Project", description: "משחק ריצה מהנה ברכבת התחתית...", image: "images/Subway.png", rating: 0 },
-  { id: 2, name: "Application Projects", description: "עוזר למשתמשים לארגן בקלות את הפרויקטים שלהם ולעקוב אחר ההתקדמות. זה מאפשר לך להוסיף פרויקטים חדשים", image: "images/AppProjects.png", rating: 0 },
-  { id: 3, name: "TO-DO List Project", description: "זה מאפשר למשתמשים לארגן את המשימות היומיומיות שלהם...", image: "images/notes.jpg", rating: 0 },
-  { id: 4, name: "Memory Game Project", description: "המשחק נועד לעורר ולחזק את הזיכרון...", image: "images/memory.png", rating: 0 },
+  { id: 1, name: "Subway Game Project", description: "משחק ריצה מהנה ברכבת התחתית. השחקן שולט בדמות שרצה במהירות בתוך מנהרות הרכבת התחתית", image: "images/Subway.png", rating: 0 },
+  { id: 2, name: "Application Projects", description: " עוזר למשתמשים לארגן בקלות את הפרויקטים שלהם ולעקוב אחר ההתקדמות. זה מאפשר לך להוסיף פרויקטים חדשים", image: "images/AppProjects.png", rating: 0 },
+  { id: 3, name: "TO-DO List Project", description: "יישום לארגון משימות יומיומיות בקלות וביעילות עבור משתמשים. הם יכולים להוסיף משימות חדשות", image: "images/notes.jpg", rating: 0 },
+  { id: 4, name: "Memory Game Project", description: "משחק נועד לעורר ולחזק את הזיכרון על ידי התאמת קלפים דומים, השחקנים הופכים שני קלפים  למצוא זוגות תואמים", image: "images/memory.png", rating: 0 },
   { id: 5, name: "Simon Game Project", description: "משחק ריכוז וזיכרון פופולרי המבוסס על חזרה על דפוסי צלילים וצבעים בסדר הנכון.", image: "images/sumon.png", rating: 0 },
 ];
 
