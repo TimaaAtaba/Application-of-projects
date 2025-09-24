@@ -11,7 +11,6 @@ h1 {
     margin-bottom: 20px;
 }
 
-/* الفورم */
 .form-container {
     background: #fff;
     padding: 15px;
@@ -20,7 +19,6 @@ h1 {
     margin-bottom: 20px;
     box-shadow: 0 5px 10px rgba(0,0,0,0.1);
 }
-
 .form-container input {
     display: block;
     width: 300px;
@@ -38,17 +36,22 @@ h1 {
     cursor: pointer;
 }
 
-#addProjectBtn { background-color: #4CAF50; color: white; }
-#cancelEditBtn { background-color: red; color: white; }
+#addProjectBtn {
+    background-color: #4CAF50;
+    color: white; 
+}
 
-/* شبكة المشاريع */
+#cancelEditBtn {
+    background-color: red;
+    color: white; 
+}
+
 .projects-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-/* كارت المشروع */
 .project-card {
     background: #fff;
     border-radius: 10px;
@@ -77,14 +80,21 @@ h1 {
     overflow: hidden;
 }
 
-/* النجوم */
-.stars { cursor: pointer; color: gray; font-size: 20px; margin: 0 2px; }
-.stars.selected { color: gold; }
+.stars {
+    cursor: pointer;
+    color: gray;
+    font-size: 20px;
+    margin: 0 2px; 
+}
 
-/* الأزرار */
+.stars.selected {
+    color: gold; 
+}
+
 .actions {
     margin-top: 10px;
 }
+
 .actions button {
     margin: 0 5px;
     padding: 5px 10px;
@@ -94,5 +104,10 @@ h1 {
     cursor: pointer;
 }
 
-.actions .editBtn { color: white; }
-.actions .deleteBtn {  color: white; }
+.actions .editBtn {
+    color: white;
+}
+
+.actions .deleteBtn { 
+    color: white;
+}
